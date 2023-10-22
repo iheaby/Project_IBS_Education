@@ -1,7 +1,6 @@
 package com.max.idea;
 
 public class Main {
-    //метод, с которого начинается реализация программы
         public static void main(String[] args) {
             /*System - стандартный класс
             out - переменная стандартного класса, к которой определен объект,
