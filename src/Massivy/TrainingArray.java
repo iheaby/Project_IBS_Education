@@ -17,5 +17,5 @@ public class TrainingArray {
     first = d;
 
         System.out.println("Сумма первого и среднего элемента: " + (first+middle));
-}
+    }
 }
