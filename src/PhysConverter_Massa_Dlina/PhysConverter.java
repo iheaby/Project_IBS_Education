@@ -1,3 +1,5 @@
+package PhysConverter_Massa_Dlina;
+
 import java.util.Scanner;
 
 public class PhysConverter {
