@@ -2,13 +2,14 @@ package Cycles;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+//!!Важно!! Дробные числа (double) вводить только через ","!
 public class CyclesOne {
     public static void main (String[] args){
         final double X = 10;
         final double Y = 15;
         final double Z = 16;
         int count =0;
+        double value = 0;
         String comparison = null;
         System.out.println("Задайте размер массива:");
         Scanner v = new Scanner((System.in));
@@ -19,8 +20,10 @@ public class CyclesOne {
         int a = 0;
         for (a =0; a<= mass.length-1; a++){
             Scanner element = new Scanner((System.in));
-            double value = element.nextDouble();
-            mass[a]= value;
+            if(element.hasNextDouble()) {
+                value = element.nextDouble();
+                mass[a] = value;
+            }
             if (value==X||value==Y||value==Z){
                 //чтобы красиво выглядело
                 comparison = "Ячейка " + a + " заполнена значением " + value + " - Данное значение имеется в константах";
