@@ -10,7 +10,7 @@ public class CyclesOne {
         final double Z = 16;
         int count =0;
         String comparison = null;
-        System.out.println("Введите размер массива:");
+        System.out.println("Задайте размер массива:");
         Scanner v = new Scanner((System.in));
         int volume = v.nextInt();
         double[] mass = new double[volume];
