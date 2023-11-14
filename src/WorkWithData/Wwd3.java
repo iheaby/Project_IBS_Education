@@ -5,35 +5,39 @@ import java.util.Scanner;
 
 public class Wwd3 {
     public static void main(String[] args) {
-        String a, str2;
-        String str1 = null;
+        String a;
+        String str2 = null;
+        String str1 = "";
+        int s;
         boolean c;
         char[] chars;
-        // строка, со значениями которой будем сравнивать и разбиваем на массив
-        String charSet = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
-        char[] comp = charSet.toCharArray();
+        int count=0;
         System.out.println("Введите строку из любых слов. Разделите слова пробелами: ");
         Scanner str = new Scanner((System.in));
         a = str.nextLine();
         //Разбиваем введенную строку на массив слов, разделенных пробелом.
         String[] b = a.split(" ");
+        s = b.length;
+        String[] mass = new String[s];
         System.out.println("Создан массив из слов :" + Arrays.toString(b));
+        /*Для строк из массива начинаем искать совпадения по регулярному выражению. Не понял, почему [a-zA-Z] не работал
+        и вписал такой \w\D\S. Поэтому, к сожалению, программа пропустит слово с символом "_"
+         */
         for (int i = 0; i <= b.length - 1; i++) {
-            //создаем массив char[] chars из букв элемента-слова массива b
-            chars = b[i].toCharArray();
-            //проверяем, являются ли элементы массива буквами
-            for (int j = 0; j <= chars.length - 1; j++) {
-                c = Character.isLetter(chars[j]);
-                for (int h = 0; h <= comp.length - 1; h++) {
-                    while (c = true) {
-                        if (chars[j] == comp[h]) {
-                            str1 += String.valueOf(chars[j]);
-                        }
-                    }
+            str1 = b[i];
+                if (str1.matches("\\w\\D\\S")) {
+                    str2 += b[i] + " ";
+                    count++;
                 }
-                b[i] = str1;
-                System.out.println("Создан массив из букв :" + Arrays.toString(b));
+                else{
+                    str2= "    Ни одного слова, написанного ТОЛЬКО латиницей";
+                            count=0;
+                }
             }
+        //надо было как-то избавиться от null в строке =)
+        System.out.println("Выделяем строку из слов, состоящих только из латинских букв, результат: ");
+        System.out.println(str2.substring(4));
+        System.out.println(count + " - столько латинских слов ");
         }
     }
-}
+
